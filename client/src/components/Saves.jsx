@@ -7,8 +7,8 @@ const Saves = () => {
     <div className={`save${stat}`} key={`save${stat}`}>
       <label>
         <input type="checkbox" name={`save${stat}`} checked={false}/>
-        <input type="number" name="saveScore"/>
-        {stat}
+        <input type="number" name={`saveScore${stat}`} value={0}/>
+        <p>{stat}</p>
       </label>
     </div>
   ))
@@ -16,6 +16,7 @@ const Saves = () => {
   return (
     <div className="savesContainer">
       {savesList}
+      <p>SAVING THROWS</p>
     </div>
   )
 }

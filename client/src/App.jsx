@@ -14,7 +14,6 @@ import Save from './components/Save.jsx';
 
 const App = () => (
   <div>
-    <form>
       <Header />
       <Attributes />
       <InspProf />
@@ -27,7 +26,6 @@ const App = () => (
       <Background />
       <Features />
       <Save />
-    </form>
   </div>
 )
 
