@@ -10,7 +10,6 @@ import Weapons from './components/Weapons.jsx';
 import Inventory from './components/Inventory.jsx';
 import Background from './components/Background.jsx';
 import Features from './components/Features.jsx';
-import Save from './components/Save.jsx';
 
 const App = () => (
   <div>
@@ -25,7 +24,6 @@ const App = () => (
       <Inventory />
       <Background />
       <Features />
-      <Save />
   </div>
 )
 
