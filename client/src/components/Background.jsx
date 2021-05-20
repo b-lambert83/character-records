@@ -1,19 +1,9 @@
 import React, {useState, useEffect, useContext } from 'react';
+import { CharContext } from '../Context.jsx'
 
 const Background = () => {
 
-  const [backgroundTraits, setBackgroundTraits] = useState({
-    Traits: 'Enter Trait A',
-    Ideals: 'Enter Ideal A',
-    Bonds: 'Enter Bond A',
-    Flaws: 'Enter Flaw A'
-  });
-
-  const handleTraitSubmit = (e) => {
-    e.preventDefault();
-    e.persist();
-
-  }
+  const { backgroundTraits, setBackgroundTraits } = useContext(CharContext);
 
   const traitsRender = Object.keys(backgroundTraits).map((key) => (
     <div key={key}>

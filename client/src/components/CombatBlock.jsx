@@ -1,74 +1,113 @@
 import React, {useState, useEffect, useContext } from 'react';
+import { CharContext } from '../Context.jsx'
 
 const CombatBlock = () => {
-
-  const [armorClass, setArmorClass] = useState(10);
-  const [initiatice, setInitiative] = useState(0);
-  const [speed, setSpeed] = useState('30 ft');
-  const [currentHitPoints, setCurrentHitPoints] = useState(0);
-  const [maxHitPoints, setMaxHitPoints] = useState(0);
-  const [totalHitDice, setTotalHitDice] = useState(0);
-  const [currentHitDice, setCurrentHitDice] = useState(0);
-  const [success1, setSuccess1] = useState(false);
-  const [success2, setSuccess2] = useState(false);
-  const [success3, setSuccess3] = useState(false);
-  const [failure1, setFailure1] = useState(false);
-  const [failure2, setFailure2] = useState(false);
-  const [failure3, setFailure3] = useState(false);
-
+  const { combatObj, setCombatObj } = useContext(CharContext);
 
   return (
     <div>
       <div>
         <div>
           <input type="Number" name="armorClass"
-          value={armorClass} onChange={(e) => setArmorClass(e.target.value)}/>
+          value={combatObj.armorClass}
+          onChange={(e) => setCombatObj({
+            ...combatObj,
+            [e.target.name]: e.target.value
+          })}/>
           <h1>ARMOR CLASS</h1>
         </div>
         <div>
-          <input type="Number" name="initiativeBonus"
-          value={initiatice} onChange={(e) => setInitiative(e.target.value)}/>
+          <input type="Number" name="initiative"
+          value={combatObj.initiative}
+          onChange={(e) => setCombatObj({
+            ...combatObj,
+            [e.target.name]: e.target.value
+          })} />
           <h1>INITIATIVE</h1>
         </div>
         <div>
           <input type="text" name="speed"
-          value={speed} onChange={(e) => setSpeed(e.target.value)}/>
+          value={combatObj.speed}
+          onChange={(e) => setCombatObj({
+            ...combatObj,
+            [e.target.name]: e.target.value
+          })} />
           <h1>SPEED</h1>
         </div>
         <div>
-          <input type="number" name="currentHP"
-          value={currentHitPoints} onChange={(e) => setCurrentHitPoints(e.target.value)}/>
+          <input type="number" name="currentHitPoints"
+          value={combatObj.currentHitPoints}
+          onChange={(e) => setCombatObj({
+            ...combatObj,
+            [e.target.name]: e.target.value
+          })} />
           <h1>CURRENT HIT POINTS</h1>
         </div>
         <div>
-          <input type="number" name="maximumHP"
-          value={maxHitPoints} onChange={(e) => setMaxHitPoints(e.target.value)}/>
+          <input type="number" name="maxHitPoints"
+          value={combatObj.maxHitPoints}
+          onChange={(e) => setCombatObj({
+            ...combatObj,
+            [e.target.name]: e.target.value
+          })} />
           <h1>MAXIMUM HIT POINTS</h1>
         </div>
         <div>
             TOTAL
-            <input type="number" name="totalHitDice"
-            value={totalHitDice} onChange={(e) => setTotalHitDice(e.target.value)}/>
+            <input type="number" name="maxHitDice"
+            value={combatObj.maxHitDice}
+            onChange={(e) => setCombatObj({
+              ...combatObj,
+              [e.target.name]: e.target.value
+            })} />
         </div>
         <div>
           CURRENT
           <input type="number" name="currentHitDice"
-          value={currentHitDice} onChange={(e) => setCurrentHitDice(e.target.value)}/>
+          value={combatObj.currentHitDice}
+          onChange={(e) => setCombatObj({
+            ...combatObj,
+            [e.target.name]: e.target.value
+          })} />
         </div>
           <h1>HIT DICE</h1>
       </div>
       <div>
         <div>
           SUCCESSES
-          <input type="checkbox" checked={success1} onChange={() => setSuccess1(!success1)}/>
-          <input type="checkbox" checked={success2} onChange={() => setSuccess2(!success2)}/>
-          <input type="checkbox" checked={success3} onChange={() => setSuccess3(!success3)}/>
+          <input type="checkbox" name="success1" checked={combatObj.success1}
+          onChange={(e) => setCombatObj({
+            ...combatObj,
+            [e.target.name]: !e.target.checked
+          })} />
+          <input type="checkbox" name="success2" checked={combatObj.success2}
+          onChange={(e) => setCombatObj({
+            ...combatObj,
+            [e.target.name]: !e.target.checked
+          })} />
+          <input type="checkbox" name="success3" checked={combatObj.success3}
+          onChange={(e) => setCombatObj({
+            ...combatObj,
+            [e.target.name]: !e.target.checked
+          })} />
         </div>
         <div>
           FAILURES
-          <input type="checkbox" checked={failure1} onChange={() => setFailure1(!failure1)}/>
-          <input type="checkbox" checked={failure2} onChange={() => setFailure2(!failure2)}/>
-          <input type="checkbox" checked={failure3} onChange={() => setFailure3(!failure3)}/>
+          <input type="checkbox" checked={combatObj.failure1} name="failure1"
+           onChange={(e) => setCombatObj({
+            ...combatObj,
+            [e.target.name]: !e.target.checked
+          })} />
+          <input type="checkbox" checked={combatObj.failure2} name="failure2"
+           onChange={(e) => setCombatObj({
+            ...combatObj,
+            [e.target.name]: !e.target.checked
+          })} />
+          <input type="checkbox" checked={combatObj.failure3} name="failure3"
+           onChange={(e) => setCombatObj({
+            ...combatObj,
+            [e.target.name]: !e.target.checked
+          })} />
         </div>
         DEATH SAVES
       </div>

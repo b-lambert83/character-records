@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useContext } from 'react';
+import { CharContext } from '../Context.jsx';
 
 const InspProf = () => {
 
-  const [inspired, setInspired] = useState(false);
-  const [profBonus, setProfBonus] = useState(0);
+  const {inspired, setInspired, profBonus, setProfBonus} = useContext(CharContext);
 
   return (
     <div className="inspProfContainer">

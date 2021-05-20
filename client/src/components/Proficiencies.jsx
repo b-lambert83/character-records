@@ -1,10 +1,9 @@
 import React, {useState, useEffect, useContext } from 'react';
+import { CharContext } from '../Context.jsx';
 
 const Proficiencies = () => {
 
-  const [profObj, setProfObj] = useState({
-    'count': 0
-  })
+  const {profObj, setProfObj} = useContext(CharContext);
 
   const profList = Object.keys(profObj).map((key) => {
     if (key !== 'count') {

@@ -1,13 +1,9 @@
 import React, {useState, useEffect, useContext } from 'react';
+import { CharContext } from '../Context.jsx'
 
 const Attributes = () => {
 
-  const [strengthScore, setStrengthScore] = useState(10);
-  const [dexterityScore, setDexterityScore] = useState(10);
-  const [constitutionScore, setConstitutionScore] = useState(10);
-  const [intelligenceScore, setIntelligenceScore] = useState(10);
-  const [wisdomScore, setWisdomScore] = useState(10);
-  const [charismaScore, setCharismaScore] = useState(10);
+  const {strengthScore, setStrengthScore, dexterityScore, setDexterityScore, constitutionScore, setConstitutionScore, intelligenceScore, setIntelligenceScore, wisdomScore, setWisdomScore, charismaScore, setCharismaScore} = useContext(CharContext);
 
   const stats = {
     STRENGTH: [strengthScore, setStrengthScore],

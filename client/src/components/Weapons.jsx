@@ -1,10 +1,9 @@
 import React, {useState, useEffect, useContext } from 'react';
+import { CharContext } from '../Context.jsx'
 
 const Weapons = () => {
 
-  const [weaponOptions, setWeaponOptions] = useState({
-    NAME: ['BONUS', 'DAMAGE']
-  });
+  const {weaponOptions, setWeaponOptions} = useContext(CharContext)
 
   const weaponsRender = Object.keys(weaponOptions).map((key) => (
     <div key={key}>

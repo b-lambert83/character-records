@@ -1,10 +1,9 @@
 import React, {useState, useEffect, useContext } from 'react';
+import { CharContext } from '../Context.jsx'
 
 const Inventory = () => {
 
-  const [items, setItems] = useState({
-    ITEM: ['WEIGHT', 'COST/ITEM', 'QUANTITY','SLOT'],
-  });
+  const {items, setItems} = useContext(CharContext);
 
   const itemsRender = Object.keys(items).map((key) => (
     <div key={key}>
