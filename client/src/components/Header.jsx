@@ -1,50 +1,44 @@
 import React, {useState, useEffect, useContext } from 'react';
 
 const Header = () => {
+  const [charName, setCharName] = useState('Enter Name');
+  const [classLevel, setClassLevel] = useState('Enter Class and Level');
+  const [background, setBackground] = useState('Enter Background');
+  const [playerName, setPlayerName] = useState('Enter Player Name');
+  const [species, setSpecies] = useState('Enter Species');
+  const [alignment, setAlignment] = useState('Enter Alignment');
+  const [experience, setExperience] = useState(0);
+
 
   return (
     <div className="headerContainer">
       <div className="nameBox headerPair">
-        <label>
-          <input type="text" name="CharName" />
-          Character Name
-        </label>
+        <input type="text" name="charName" onChange={(e) => setCharName(e.target.value)} value={charName}/>
+        <t>Character Name</t>
       </div>
       <div className="informationBox headerPair">
-        <label>
-          <input type="text" name="classLevel" />
-          Class and Level
-        </label>
+          <input type="text" name="classLevel" onChange={(e) => setClassLevel(e.target.value)} value={classLevel}/>
+          <t>Class and Level</t>
       </div>
       <div className="background headerPair">
-        <label>
-          <input type="text" name="background"/>
-          Background
-        </label>
+          <input type="text" name="background" onChange={(e) => setBackground(e.target.value)} value={background}/>
+          <t>Background</t>
       </div>
       <div className="headerPair playerName">
-        <label>
-          <input type="text" name="playerName"/>
-          Player Name
-        </label>
+          <input type="text" name="playerName" onChange={(e) => setPlayerName(e.target.value)} value={playerName}/>
+          <t>Player Name</t>
       </div>
       <div className="headerPair species">
-        <label>
-          <input type="text" name="species"/>
-          Species
-        </label>
+        <input type="text" name="species" onChange={(e) => setSpecies(e.target.value)} value={species}/>
+        <t>Species</t>
       </div>
       <div className="headerPair alignment">
-        <label>
-          <input type="text" name="alignment"/>
-          Alignment
-        </label>
+        <input type="text" name="alignment" onChange={(e) => setAlignment(e.target.value)} value={alignment}/>
+        <t>Alignment</t>
       </div>
       <div className="headerPair experience">
-        <label>
-          <input type="number" name="experience"/>
-          Experience Points
-        </label>
+        <input type="number" name="experience" onChange={(e) => setExperience(e.target.value)} value={experience}/>
+        <t>Experience Points</t>
       </div>
     </div>
   )

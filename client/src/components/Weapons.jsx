@@ -2,36 +2,44 @@ import React, {useState, useEffect, useContext } from 'react';
 
 const Weapons = () => {
 
-  const weaponOptions = {
-    Longsword: ['+2', '1d8+2'],
-    Firebolt: ['+2', '1d10']
-  };
+  const [weaponOptions, setWeaponOptions] = useState({
+    NAME: ['BONUS', 'DAMAGE']
+  });
 
   const weaponsRender = Object.keys(weaponOptions).map((key) => (
     <div key={key}>
-      <p>{key}</p><p>{weaponOptions[key][0]}</p><p>{weaponOptions[key][1]}</p>
+      <t> {key} </t><t> {weaponOptions[key][0]} </t><t> {weaponOptions[key][1]} </t>
     </div>
   ));
 
+  const handleAttackSubmit = (e) => {
+    e.preventDefault();
+    e.persist();
+    // console.log(e);
+    setWeaponOptions({...weaponOptions,
+      [e.target[0].value]: [`+${e.target[1].value}`, e.target[2].value]
+    })
+  };
+
   return (
-    <div>
-      <p>NAME</p>
-      <p>BONUS</p>
-      <p>DAMAGE</p>
+    <div className="attacksContainer">
       {weaponsRender}
-      <form id="addAttack" />
-      <label>
-        <input form="addAttack" type="text" />
-        ATTACK
-      </label>
-      <label>
-        <input form="addAttack" type="number"/>
-        BONUS
-      </label>
-      <label>
-        <input form="addAttack" type="text" />
-        DAMAGE
-      </label>
+      <div>
+        <form id="addAttack" onSubmit={handleAttackSubmit}/>
+        <label>
+          <input form="addAttack" type="text" name="attack"/>
+          ATTACK
+        </label>
+        <label>
+          <input form="addAttack" type="number" name="bonusToHit"/>
+          BONUS
+        </label>
+        <label>
+          <input form="addAttack" type="text" name="attackDamage"/>
+          DAMAGE
+        </label>
+        <input type="submit" value="Add Attack" form="addAttack"/>
+      </div>
       <h1>{`ATTACKS & SPELLCASTING`}</h1>
     </div>
   )
